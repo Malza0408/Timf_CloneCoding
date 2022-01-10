@@ -54,7 +54,12 @@ const Logo = styled.img`
   height: 2rem;
 `;
 
-const NavbarDropDown = styled.div<{ isToggle: boolean }>`
+interface NavbarDropDownProps {
+  readonly isToggle: boolean;
+  readonly isHover: boolean;
+}
+
+const NavbarDropDown = styled.div<NavbarDropDownProps>`
   position: absolute;
   display: flex;
   flex-basis: auto;
@@ -62,13 +67,16 @@ const NavbarDropDown = styled.div<{ isToggle: boolean }>`
   right: 0;
   padding-right: 2rem;
   transition: height 0.35s ease-out;
-  ${({ isToggle, theme }) => theme.media.laptop`
+  ${({ isToggle, isHover, theme }) => theme.media.laptop`
   position: relative;
   display: block;
   flex-basis: 100%;
   padding-right: 0;
   overflow: hidden;
-  height: ${isToggle ? "670%" : "0"}
+  height: ${
+    isToggle && !isHover ? "670%" : isToggle && isHover ? "1200%" : "0%"
+  };
+  transition: ${!isHover ? "height 0.35s ease-out" : "none"};
   `}
 `;
 
@@ -91,6 +99,12 @@ interface NavbarProps {
 const Navbar = ({ introCompany, introBusiness, notice }: NavbarProps) => {
   const [isToggle, setIsToggle] = useState(false);
   const [canToggle, setCanToggle] = useState(true);
+  const [isHover, setIsHover] = useState(false);
+
+  const handleIsHover = (bool: boolean) => {
+    setIsHover(bool);
+  };
+
   const handleToggle = () => {
     if (canToggle) {
       setIsToggle(!isToggle);
@@ -115,22 +129,25 @@ const Navbar = ({ introCompany, introBusiness, notice }: NavbarProps) => {
       <NavbarToggleBtn onClick={handleToggle}>
         <ToggleBtnContent src={process.env.PUBLIC_URL + "toggle.png"} />
       </NavbarToggleBtn>
-      <NavbarDropDown isToggle={isToggle}>
+      <NavbarDropDown isToggle={isToggle} isHover={isHover}>
         <NavbarNav>
           <NavbarList
             innerText="회사소개"
             isDropDown={true}
             menuTexts={introCompany}
+            handleIsHover={handleIsHover}
           />
           <NavbarList
             innerText="사업소개"
             isDropDown={true}
             menuTexts={introBusiness}
+            handleIsHover={handleIsHover}
           />
           <NavbarList
             innerText="공지사항"
             isDropDown={true}
             menuTexts={notice}
+            handleIsHover={handleIsHover}
           />
           <NavbarList innerText="보도자료" href="/blank" />
           <NavbarList innerText="배송지역검색" href="/search" />

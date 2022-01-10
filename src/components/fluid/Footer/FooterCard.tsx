@@ -34,6 +34,9 @@ const FooterContent = styled.p`
 
 const StyledAn = styled.a`
   color: rgb(213, 213, 213);
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 interface FooterCardProps {
@@ -50,8 +53,8 @@ const FooterCard = ({ title, contents, isAnchor }: FooterCardProps) => {
       <StyledHr />
       {contents.map((content) => {
         return isAnchor ? (
-          <StyledAn href="/blank">
-            <FooterContent key={content.key}>{content.data}</FooterContent>
+          <StyledAn href="/blank" key={content.key}>
+            <FooterContent>{content.data}</FooterContent>
           </StyledAn>
         ) : (
           <FooterContent key={content.key}>{content.data}</FooterContent>

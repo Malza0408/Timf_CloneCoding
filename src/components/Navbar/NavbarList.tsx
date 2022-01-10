@@ -49,17 +49,26 @@ interface ListProps {
   readonly isDropDown?: boolean;
   readonly menuTexts?: IFintro[];
   readonly href?: string;
+  readonly handleIsHover?: (bool: boolean) => void;
 }
 
-const NavbarList = ({ innerText, isDropDown, menuTexts, href }: ListProps) => {
+const NavbarList = ({
+  innerText,
+  isDropDown,
+  menuTexts,
+  href,
+  handleIsHover,
+}: ListProps) => {
   const [isHover, setIsHover] = useState<boolean>(false);
 
   const handleMouseEnter = (e: MouseEvent<HTMLElement>) => {
     setIsHover(true);
+    handleIsHover && handleIsHover(true);
   };
 
   const handleMouseLeave = (e: MouseEvent<HTMLElement>) => {
     setIsHover(false);
+    handleIsHover && handleIsHover(false);
   };
 
   return (
