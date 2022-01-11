@@ -15,7 +15,7 @@ const FluidPaddingNoMargin = styled.section`
   padding: 0 1.5rem 0 1.5rem;
 `;
 
-const FluidPaddingFooter = styled.section`
+const FluidPaddingFooter = styled.footer`
   padding: 1.6rem;
   ${({ theme }) => {
     return css`
@@ -28,19 +28,21 @@ const FluidPaddingFooter = styled.section`
 const Fluid = () => {
   return (
     <>
-      <Jumbotron />
-      <FluidPadding>
-        <Welcome />
-      </FluidPadding>
-      <FluidPadding>
-        <FluidCards />
-      </FluidPadding>
-      <FluidPaddingNoMargin>
-        <ColumnSection />
-      </FluidPaddingNoMargin>
-      <FluidPadding>
-        <Connect />
-      </FluidPadding>
+      <main role="main">
+        <Jumbotron />
+        <FluidPadding>
+          <Welcome />
+        </FluidPadding>
+        <FluidPadding>
+          <FluidCards />
+        </FluidPadding>
+        <FluidPaddingNoMargin>
+          <ColumnSection />
+        </FluidPaddingNoMargin>
+        <FluidPadding>
+          <Connect />
+        </FluidPadding>
+      </main>
       <FluidPaddingFooter>
         <Footer />
       </FluidPaddingFooter>

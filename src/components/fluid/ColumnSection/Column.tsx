@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import ArticleContent from "./ArticleContent";
 
-const ColumnWrapper = styled.div`
+const ColumnWrapper = styled.article`
   padding: 1.6rem;
   flex-basis: 50%;
 `;
@@ -18,7 +18,7 @@ const ColumnTitle = styled.h4`
   }}
 `;
 
-const ColumnArticle = styled.article`
+const ColumnArticle = styled.section`
   ${({ theme }) => {
     return css`
       background-color: ${theme.colors.article};

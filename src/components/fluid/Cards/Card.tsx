@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const CardItem = styled.article`
+const CardItem = styled.section`
   padding: 1.6rem;
   width: 100%;
   ${({ theme }) => theme.media.tablet_min`
@@ -14,7 +14,7 @@ const CardImage = styled.img`
   width: 100%;
 `;
 
-const CardBody = styled.div`
+const CardBody = styled.article`
   padding: 2rem;
   ${({ theme }) => theme.media.tablet_max`
   padding: 0;

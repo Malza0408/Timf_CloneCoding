@@ -122,38 +122,43 @@ const Navbar = ({ introCompany, introBusiness, notice }: NavbarProps) => {
     return () => clearTimeout(tick);
   });
   return (
-    <NavbarContainer>
-      <NavbarBrand href="/">
-        <Logo src={process.env.PUBLIC_URL + "logo.png"} alt="Team-fresh logo" />
-      </NavbarBrand>
-      <NavbarToggleBtn onClick={handleToggle}>
-        <ToggleBtnContent src={process.env.PUBLIC_URL + "toggle.png"} />
-      </NavbarToggleBtn>
-      <NavbarDropDown isToggle={isToggle} isHover={isHover}>
-        <NavbarNav>
-          <NavbarList
-            innerText="회사소개"
-            isDropDown={true}
-            menuTexts={introCompany}
-            handleIsHover={handleIsHover}
+    <header>
+      <NavbarContainer>
+        <NavbarBrand href="/">
+          <Logo
+            src={process.env.PUBLIC_URL + "logo.png"}
+            alt="Team-fresh logo"
           />
-          <NavbarList
-            innerText="사업소개"
-            isDropDown={true}
-            menuTexts={introBusiness}
-            handleIsHover={handleIsHover}
-          />
-          <NavbarList
-            innerText="공지사항"
-            isDropDown={true}
-            menuTexts={notice}
-            handleIsHover={handleIsHover}
-          />
-          <NavbarList innerText="보도자료" href="/blank" />
-          <NavbarList innerText="배송지역검색" href="/search" />
-        </NavbarNav>
-      </NavbarDropDown>
-    </NavbarContainer>
+        </NavbarBrand>
+        <NavbarToggleBtn onClick={handleToggle}>
+          <ToggleBtnContent src={process.env.PUBLIC_URL + "toggle.png"} />
+        </NavbarToggleBtn>
+        <NavbarDropDown isToggle={isToggle} isHover={isHover}>
+          <NavbarNav>
+            <NavbarList
+              innerText="회사소개"
+              isDropDown={true}
+              menuTexts={introCompany}
+              handleIsHover={handleIsHover}
+            />
+            <NavbarList
+              innerText="사업소개"
+              isDropDown={true}
+              menuTexts={introBusiness}
+              handleIsHover={handleIsHover}
+            />
+            <NavbarList
+              innerText="공지사항"
+              isDropDown={true}
+              menuTexts={notice}
+              handleIsHover={handleIsHover}
+            />
+            <NavbarList innerText="보도자료" href="/blank" />
+            <NavbarList innerText="배송지역검색" href="/search" />
+          </NavbarNav>
+        </NavbarDropDown>
+      </NavbarContainer>
+    </header>
   );
 };
 

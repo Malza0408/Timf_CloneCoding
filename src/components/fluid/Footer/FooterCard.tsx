@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { IFFooterData } from "../../../interface/types";
 
-const FooterText = styled.div`
+const FooterText = styled.article`
   padding: 1.6rem;
   color: rgb(213, 213, 213);
   text-align: center;

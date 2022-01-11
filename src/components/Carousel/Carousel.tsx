@@ -8,7 +8,6 @@ const CarouselContainer = styled.section`
   width: 100%;
   overflow: hidden;
   position: relative;
-  /* z-index: 0; */
 `;
 
 const CarouselSlide = styled.div<{ isTransition: boolean }>`
