@@ -1,7 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import Link from "../Link/Link";
 
-const DropdownItem = styled.a`
+const DropdownItem = styled(Link)`
   display: block;
   padding: 1.2rem 1.6rem 1.2rem 1.6rem;
   ${({ theme }) => {
@@ -19,7 +20,11 @@ interface ListMenuProps {
 }
 
 const ListMenu = ({ menuText }: ListMenuProps) => {
-  return <DropdownItem href="/blank">{menuText}</DropdownItem>;
+  return (
+    <DropdownItem href="/blank" className="dropDownItem">
+      {menuText}
+    </DropdownItem>
+  );
 };
 
 export default ListMenu;

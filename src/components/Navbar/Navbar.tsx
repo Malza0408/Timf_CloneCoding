@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { IFintro } from "../../interface/types";
+import Link from "../Link/Link";
 import NavbarList from "./NavbarList";
 
 const NavbarContainer = styled.nav`
@@ -42,7 +43,7 @@ const ToggleBtnContent = styled.img`
   vertical-align: middle;
 `;
 
-const NavbarBrand = styled.a`
+const NavbarBrand = styled(Link)`
   margin: 0 1.6rem 0 0;
   padding: 0.5rem 0 0.5rem 0;
   width: 11rem;
@@ -124,7 +125,7 @@ const Navbar = ({ introCompany, introBusiness, notice }: NavbarProps) => {
   return (
     <header>
       <NavbarContainer>
-        <NavbarBrand href="/">
+        <NavbarBrand href="/" className="navbarLogo">
           <Logo
             src={process.env.PUBLIC_URL + "logo.png"}
             alt="Team-fresh logo"

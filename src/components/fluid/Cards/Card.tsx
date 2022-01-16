@@ -6,7 +6,6 @@ const CardItem = styled.section`
   width: 100%;
   ${({ theme }) => theme.media.tablet_min`
   width: 25%;
-  flex: 0 0 25%;
   `}
 `;
 
